@@ -1,0 +1,19 @@
+version: "3.3"
+services:
+  my-helper-api-db:
+    container_name: my-helper-api-mysql-db
+    image: jamielsharief/mysql:latest
+    restart: always
+    environment:
+      MYSQL_DATABASE: "my_helper_api_db"
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "password"
+      MYSQL_ROOT_PASSWORD: "password"
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+    volumes:
+      - vol-my-helper-api-db:/var/lib/mysql
+volumes:
+  vol-my-helper-api-db:
